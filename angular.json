@@ -27,6 +27,8 @@
               }
             ],
             "styles": [
+              "src/app/styles/normalize.css",
+              "src/app/styles/Fonts.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -90,6 +92,8 @@
               }
             ],
             "styles": [
+              "src/app/styles/normalize.css",
+              "src/app/styles/Fonts.css",
               "src/styles.css"
             ],
             "scripts": []
