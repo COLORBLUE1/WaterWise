@@ -5,15 +5,13 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './navbar.component.html',
   styles: `
-  
-  
   div {
-    background-color:rgb(1, 116, 231);
+    //background-color:rgb(1, 116, 231);
     border-radius: 5px;
     height: 30px;
-    width: 100%;
-    margin:auto;
-
+    width: 90%;
+    margin:0 auto;
+    margin-top: 40px;
 
     ul {
       padding: 0; 
@@ -36,8 +34,6 @@ import { Component } from '@angular/core';
       }
     }
   }
-  
-  
   `,
 })
 export class NavbarComponent {}

@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
     width: 90%;
     position: absolute;
     bottom: 10px;
+    padding: 15px;
     h3{
       color: #000;
       font-family: montserrat;
@@ -23,10 +24,9 @@ nav{
     justify-content: space-around;
     li{
       list-style: none;
-      display: inline-block;
-      margin-right: 20px;
       font-family: montserrat;
       color:rgba(0, 0, 0, 0.43);
+      padding: 0;
       a{
         text-decoration: none;
         color: white;
@@ -39,9 +39,8 @@ nav{
     }
     .active{
       color: #7286D3;
- font-weight: bold; 
- font-family: montserrat;
-
+      font-weight: bold; 
+      font-family: montserrat;
     }
   }
 }
