@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { GamesComponent } from "../../games/games.component";
 
 @Component({
   selector: 'app-menu',
-  imports: [],
+  imports: [GamesComponent],
   templateUrl: './menu.component.html',
   styles: `div{
     //background-color: red;
@@ -45,6 +46,12 @@ nav{
   }
 }
 
+  }
+  
+  section{
+    margin-top: 65px;
+    padding:30px;
+    height: auto;
   }`,
 })
 export class MenuComponent {}
