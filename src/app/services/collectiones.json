@@ -1,0 +1,72 @@
+{
+    "Usuarios": {
+      "userId": "string",
+      "nombre": "string",
+      "correo": "string",
+      "rol": "string", // "usuario" o "administrador"
+      "fechaRegistro": "timestamp"
+    },
+    "Juegos": {
+      "juegoId": "string",
+      "titulo": "string",
+      "tipo": "string", // "ahorcado", "selección múltiple", "verdadero o falso"
+      "descripcion": "string",
+      "nivel": "string", // "básico", "intermedio", "avanzado"
+      "fechaCreacion": "timestamp"
+    },
+    "Preguntas": {
+      "preguntaId": "string",
+      "juegoId": "reference", // ref a Juegos
+      "tipo": "string", // mismo que tipo de juego
+      "pregunta": "string",
+      "opciones": ["string"], // solo para selección múltiple
+      "respuestaCorrecta": "string or boolean",
+      "fechaCreacion": "timestamp"
+    },
+    "Resultados": {
+      "resultadoId": "string",
+      "userId": "reference", // ref a Usuarios
+      "juegoId": "reference", // ref a Juegos
+      "puntaje": "number",
+      "tiempo": "number",
+      "fecha": "timestamp"
+    },
+    "Publicaciones": {
+      "publicacionId": "string",
+      "userId": "reference", // ref a Usuarios
+      "titulo": "string",
+      "contenido": "string",
+      "likes": "number",
+      "fechaCreacion": "timestamp",
+      "estado": "string" // "activa", "inactiva"
+    },
+    "LikesPublicaciones": {
+      "likeId": "string",
+      "publicacionId": "reference",
+      "userId": "reference",
+      "fecha": "timestamp"
+    },
+    "Foros": {
+      "foroId": "string",
+      "userId": "reference",
+      "titulo": "string",
+      "contenido": "string",
+      "fechaCreacion": "timestamp",
+      "estado": "string" // "activo", "inactivo"
+    },
+    "RespuestasForo": {
+      "respuestaId": "string",
+      "foroId": "reference",
+      "userId": "reference",
+      "contenido": "string",
+      "fecha": "timestamp"
+    },
+    "Notificaciones": {
+      "notificacionId": "string",
+      "userId": "reference",
+      "mensaje": "string",
+      "leido": "boolean",
+      "fecha": "timestamp"
+    }
+  }
+  

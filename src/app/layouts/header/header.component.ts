@@ -6,12 +6,11 @@ import { NavbarComponent } from "../../components/navbar/navbar.component";
   selector: 'app-header',
   imports: [MenuComponent, NavbarComponent],
   templateUrl: './header.component.html',
-  styles: `section{
+  styles: `section {
     //background-color:rgb(55, 255, 88);
     height: 30vh;
     width: 100%;
     position: absolute;
-
   }`
 })
 export class HeaderComponent {

@@ -3,11 +3,11 @@ import { SplashScreenComponent } from '../pages/splash-screen/splash-screen.comp
 import { ErrorComponent } from '../pages/error/error.component';
 
 export const routes: Routes = [
+
   //Ruta spashscreen / raiz
-
   { path: '', component: SplashScreenComponent, title: 'Splash Screen' },
+  
   //Ruta ogin/register
-
   {
     path: 'auth',
     loadChildren: () =>
@@ -20,6 +20,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import('../pages/preHome/preHome.routes').then((m) => m.preHome_routes),
   },
+  
   //Ruta Home
   {
     path: 'main',
