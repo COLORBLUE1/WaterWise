@@ -2,13 +2,15 @@
   <h3>¿Qué verás?</h3>
   <nav>
     <ul>
-      <li class="active">Juegos</li>
-      <li>Foros</li>
-      <li>Pubicaciones</li>
+      <li [class.active]="seccionActiva === 'games'" (click)="cambiarSeccion('games')">Juegos</li>
+      <li [class.active]="seccionActiva === 'foros'" (click)="cambiarSeccion('foros')">Foros</li>
+      <li [class.active]="seccionActiva === 'publicaciones'" (click)="cambiarSeccion('publicaciones')">Publicaciones</li>
     </ul>
   </nav>
+
   <section>
-   <app-games/>
+    <app-games *ngIf="seccionActiva === 'games'"></app-games>
+    <!-- <app-foros *ngIf="seccionActiva === 'foros'"></app-foros>
+    <app-publicaciones *ngIf="seccionActiva === 'publicaciones'"></app-publicaciones> -->
   </section>
 </div>
-

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { GamesComponent } from "../../games/games.component";
+import { GamesComponent } from "../../views/games/games.component";
 
 @Component({
+  standalone: true,
   selector: 'app-menu',
   imports: [GamesComponent],
   templateUrl: './menu.component.html',
@@ -54,4 +55,12 @@ nav{
     height: auto;
   }`,
 })
-export class MenuComponent {}
+export class MenuComponent {
+
+    seccionActiva: string = 'games'; // por defecto
+  
+    cambiarSeccion(seccion: string) {
+      this.seccionActiva = seccion;
+    }
+
+}

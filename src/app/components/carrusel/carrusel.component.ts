@@ -8,18 +8,21 @@ import { Component } from '@angular/core';
 
     div {
       overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
       figure {
         display: flex;
         gap: 15px;
   
           img {
-          border-radius: 20px;
-          width: 200px;
-          height: 250px;
-          object-fit: cover;
+            cursor: pointer;
+            border-radius: 20px;
+            width: 200px;
+            height: 250px;
+            object-fit: cover;
+          }
         }
       }
-    }
   `
 })
 export class CarruselComponent {
