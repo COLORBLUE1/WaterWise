@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { GamesComponent } from "../../views/games/games.component";
+import { CommonModule } from '@angular/common';
+import { CarruselComponent } from "../carrusel/carrusel.component";
+import { ForosComponent } from "../../views/foros/foros.component";
+import { PublicacionesComponent } from "../../views/publicaciones/publicaciones.component";
 
 @Component({
   standalone: true,
   selector: 'app-menu',
-  imports: [GamesComponent],
+  imports: [GamesComponent, CommonModule, CarruselComponent, ForosComponent, PublicacionesComponent],
   templateUrl: './menu.component.html',
   styles: `div{
     //background-color: red;
