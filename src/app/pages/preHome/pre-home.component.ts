@@ -6,34 +6,39 @@ import { Component } from '@angular/core';
   templateUrl: './pre-home.component.html',
   styles: `section {
     color:#72757E;
-    height: 100%;
+    height: 100vh;
+    background: red;
+    overflow: hidden;
 
     div {
       display: grid;
       justify-items: center;
       height: 100%;
+
     span {
       font-family: inter;
       position: relative;
     }
+
      span:first-child {
         text-align: right;
         right: 10px;        
         width: 100%;
       }
+
       span:nth-child(2) {
         text-align: left;
         left:20px;        
         width: 100%;
-
       }
+
       span:nth-child(3) {
         text-align: right;
         right: 10px;        
         width: 100%;  
       }
+      
       button {
-        margin-top: 20px;
         background: #7286d3;
         border-radius: 30px;
         font-family: inter;
