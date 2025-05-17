@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { ForoService } from '../../services/ForoService';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-foro-card',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './foro-card.component.html',
   styles: `section {
      height: auto;
@@ -24,5 +26,13 @@ import { Component } from '@angular/core';
     }`
 })
 export class ForoCardComponent {
+ foros: any[] = [];
 
+  // constructor(private foroService: ForoService) {}
+
+  // ngOnInit() {
+  //   this.foroService.getForos().subscribe(data => {
+  //     this.foros = data;
+  //   });
+  //}
 }
