@@ -7,10 +7,17 @@ import { NavbarComponent } from "../../components/navbar/navbar.component";
   imports: [MenuComponent, NavbarComponent],
   templateUrl: './header.component.html',
   styles: `section {
-    //background-color:rgb(55, 255, 88);
-    height: 30vh;
-    width: 100%;
-    position: absolute;
+  height: 30vh;
+  position: absolute;
+  min-width: 320px;
+  max-width: 576px;
+  width: 100%;
+  position: absolute;
+  
+   @media only screen and (min-width: 320px) and (max-width: 576px) {
+  width: 100dvw;
+  background-color: transparent;
+  }
   }`
 })
 export class HeaderComponent {

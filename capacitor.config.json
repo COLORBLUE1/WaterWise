@@ -1,0 +1,6 @@
+{
+  "appId": "com.waterwise.app",
+  "appName": "WaterWise",
+  "webDir": "dist/water-wise/browser",
+  "bundledWebRuntime": false
+}

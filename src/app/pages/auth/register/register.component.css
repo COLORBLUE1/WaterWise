@@ -30,6 +30,7 @@ section {
             font-family: inter;
             font-weight: 400;
             outline: none;
+            border: none;
             &::placeholder {
               color: rgba(0, 0, 0, 0.288);
               padding: 10px;

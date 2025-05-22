@@ -1,13 +1,31 @@
-<!-- <section>
-  <div *ngFor="let foro of foros" class="animate__animated animate__fadeInUp">
-    <img [src]="foro.icono || 'icons/foloicon.png'" alt="">
-    <p>{{ foro.descripcion }}</p>
-  </div>
-</section> -->
 
 <section>
-    <div class="animate__animated animate__fadeInUp">
-        <img src="icons/foloicon.png" alt="">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eius voluptatibus obcaecati iste odio autem repellat sunt doloremque earum, perspiciatis quisquam illo repudiandae voluptas modi, temporibus corporis eaque debitis omnis?</p>
+  <!-- Mostrar todas las cards si NO hay foro seleccionado -->
+  <ng-container *ngIf="!foroSeleccionado; else detalleForo">
+    <div
+      *ngFor="let foro of foros"
+      class="animate__animated animate__fadeInUp"
+      (click)="seleccionarForo(foro)"
+      style="cursor: pointer"
+    >
+      <img src="icons/foloicon.png" alt="" />
+      <p>{{ foro.contenido }}</p>
     </div>
+  </ng-container>
+
+  <!-- Mostrar solo el foro seleccionado y sus respuestas -->
+  <ng-template #detalleForo >
+    <div class="animate__animated animate__zoomIn foroselecionado">
+      <img src="icons/foloicon.png" alt="" />
+      <p>{{ foroSeleccionado.contenido }}</p>
+    <button (click)="abrirModal()">Responder</button>
+
+      </div> 
+    <app-respuestas [respuestas]="respuestas" *ngIf="foroSeleccionado"></app-respuestas>
+  </ng-template>
+  <app-modal-responder 
+  *ngIf="showModal"
+  (close)="cerrarModal()"
+  (submit)="enviarRespuesta($event)">
+</app-modal-responder>
 </section>
