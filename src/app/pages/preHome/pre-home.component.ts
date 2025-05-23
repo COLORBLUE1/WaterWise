@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
   styles: `section {
     color:#72757E;
     height: 100vh;
-    background: red;
     overflow: hidden;
 
     div {
@@ -45,6 +44,7 @@ import { Component } from '@angular/core';
         font-weight: 400;
         border: none;
         padding: 10px;
+        margin-bottom:50px;
         cursor: pointer;
         width: 250px;
         height: 50px;

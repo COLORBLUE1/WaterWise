@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { SplashScreenComponent } from '../pages/splash-screen/splash-screen.component';
 import { ErrorComponent } from '../pages/error/error.component';
+import { AuthGuard } from '../services/auth/authGuard/authGuard.service';
 
 export const routes: Routes = [
 
@@ -17,6 +18,7 @@ export const routes: Routes = [
   //Ruta Pre Home
   {
     path: 'preHome',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('../pages/preHome/preHome.routes').then((m) => m.preHome_routes),
   },
@@ -24,6 +26,7 @@ export const routes: Routes = [
   //Ruta Home
   {
     path: 'main',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('../pages/home/home.routes').then((m) => m.Home_routes),
   },

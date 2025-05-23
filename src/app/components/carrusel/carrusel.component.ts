@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { JuegosService } from '../../services/juesgos/jusgoscard.servise';
+import { JuegosService } from '../../services/juesgos/jusgoscard.service';
 import { CommonModule } from '@angular/common';
 
 @Component({

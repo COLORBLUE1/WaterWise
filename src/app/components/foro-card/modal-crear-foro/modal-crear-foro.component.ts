@@ -1,25 +1,24 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
-  selector: 'app-modal-responder',
+  selector: 'app-modal-crear-foro',
   imports: [CommonModule, FormsModule],
   template: `
     <div class="modal-backdrop" (click)="cerrar()"></div>
     <div class="modal-content">
-      <textarea
-        [(ngModel)]="respuesta"
-        placeholder="Escribe tu respuesta"
-      ></textarea>
+      <input [(ngModel)]="titulo" placeholder="Título" />
+      <textarea [(ngModel)]="contenido" placeholder="Contenido"></textarea>
       <div class="botones">
-        <button (click)="enviar()">Enviar</button>
+        <button (click)="crearForo()">Crear</button>
         <button (click)="cerrar()">Cancelar</button>
       </div>
     </div>
   `,
-  styles: [`
+  styles: [
+    `
       .modal-backdrop {
         animation: bounce;
         position: fixed;
@@ -43,7 +42,19 @@ import { FormsModule } from '@angular/forms';
         flex-direction: column;
         gap: 1rem;
       }
-      
+
+      input {
+        width: 100%;
+        min-height: 20px;
+        border-radius: 10px;
+        border: none;
+        padding: 0.5rem;
+        resize: vertical;
+        background: rgba(5, 103, 250, 0.27);
+        color: #000;
+        border: none;
+      }
+
       textarea {
         width: 100%;
         min-height: 80px;
@@ -53,7 +64,7 @@ import { FormsModule } from '@angular/forms';
         resize: vertical;
         background: rgba(5, 103, 250, 0.27);
         color: #000;
-        border:none;
+        border: none;
       }
 
       .botones {
@@ -75,20 +86,20 @@ import { FormsModule } from '@angular/forms';
     `,
   ],
 })
-export class ModalResponderComponent {
-  @Input() show = false;
+export class ModalCrearForoComponent {
   @Output() close = new EventEmitter<void>();
-  @Output() submit = new EventEmitter<string>();
-  respuesta = '';
+  @Output() submit = new EventEmitter<{ titulo: string; contenido: string }>();
+  titulo = '';
+  contenido = '';
 
   cerrar() {
     this.close.emit();
-    this.respuesta = '';
   }
-
-  enviar() {
-    if (this.respuesta.trim()) {
-      this.submit.emit(this.respuesta);
+  crearForo() {
+    if (this.titulo.trim() && this.contenido.trim()) {
+      this.submit.emit({ titulo: this.titulo, contenido: this.contenido });
+      this.titulo = '';
+      this.contenido = '';
       this.cerrar();
     }
   }

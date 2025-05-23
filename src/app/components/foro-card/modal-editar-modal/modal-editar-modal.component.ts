@@ -1,25 +1,24 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
-  selector: 'app-modal-responder',
+  selector: 'app-modal-editar-modal',
   imports: [CommonModule, FormsModule],
   template: `
     <div class="modal-backdrop" (click)="cerrar()"></div>
-    <div class="modal-content">
-      <textarea
-        [(ngModel)]="respuesta"
-        placeholder="Escribe tu respuesta"
-      ></textarea>
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <input [(ngModel)]="titulo" placeholder="Título" />
+      <textarea [(ngModel)]="contenido" placeholder="Contenido"></textarea>
       <div class="botones">
-        <button (click)="enviar()">Enviar</button>
+        <button (click)="editarForo()">Guardar</button>
         <button (click)="cerrar()">Cancelar</button>
       </div>
     </div>
   `,
-  styles: [`
+  styles: [
+    `
       .modal-backdrop {
         animation: bounce;
         position: fixed;
@@ -43,7 +42,19 @@ import { FormsModule } from '@angular/forms';
         flex-direction: column;
         gap: 1rem;
       }
-      
+
+      input {
+        width: 100%;
+        min-height: 20px;
+        border-radius: 10px;
+        border: none;
+        padding: 0.5rem;
+        resize: vertical;
+        background: rgba(5, 103, 250, 0.27);
+        color: #000;
+        border: none;
+      }
+
       textarea {
         width: 100%;
         min-height: 80px;
@@ -53,7 +64,7 @@ import { FormsModule } from '@angular/forms';
         resize: vertical;
         background: rgba(5, 103, 250, 0.27);
         color: #000;
-        border:none;
+        border: none;
       }
 
       .botones {
@@ -75,20 +86,35 @@ import { FormsModule } from '@angular/forms';
     `,
   ],
 })
-export class ModalResponderComponent {
-  @Input() show = false;
+export class ModalEditarModalComponent implements OnInit {
+  @Input() foro: any;
   @Output() close = new EventEmitter<void>();
-  @Output() submit = new EventEmitter<string>();
-  respuesta = '';
+  @Output() submit = new EventEmitter<{ foroId: number; titulo: string; contenido: string; estado: string }>();
+
+  titulo = '';
+  contenido = '';
+  estado = '';
+
+  ngOnInit() {
+    if (this.foro) {
+      this.titulo = this.foro.titulo;
+      this.contenido = this.foro.contenido;
+      this.estado = this.foro.estado || 'activo';
+    }
+  }
 
   cerrar() {
     this.close.emit();
-    this.respuesta = '';
   }
 
-  enviar() {
-    if (this.respuesta.trim()) {
-      this.submit.emit(this.respuesta);
+  editarForo() {
+    if (this.titulo.trim() && this.contenido.trim()) {
+      this.submit.emit({
+        foroId: this.foro.foroId,
+        titulo: this.titulo,
+        contenido: this.contenido,
+        estado: this.estado
+      });
       this.cerrar();
     }
   }

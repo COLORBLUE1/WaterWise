@@ -10,9 +10,8 @@ export class SplashScreenComponent {
    constructor(private router: Router) {}
 
    ngOnInit(): void {
- 
-     setTimeout(() => {
-       this.router.navigate(['auth/login']);
-     }, 2000);
-   }
+      setTimeout(() => {
+        this.router.navigate(['auth/login']);
+      }, 2000);
+    }
 }

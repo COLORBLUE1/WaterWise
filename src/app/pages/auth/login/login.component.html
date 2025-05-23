@@ -1,22 +1,27 @@
 <section>
   <div class="animate__animated animate__fadeInDown">
     <div>
-      <form action="" >
-        <h2>Iniciar sesión</h2>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="ejemplo@gmail.com"
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="*******"
-        />
-        <button type="submit">INGRESAR</button>
-      </form>
+   <form (ngSubmit)="onSubmit()">
+  <h2>Iniciar sesión</h2>
+  <input
+    type="text"
+    name="correo"
+    id="correo"
+    placeholder="ejemplo@gmail.com"
+    [(ngModel)]="correo"
+    required
+  />
+  <input
+    type="password"
+    name="contrasena"
+    id="contrasena"
+    placeholder="*******"
+    [(ngModel)]="contrasena"
+    required
+  />
+  <button type="submit">INGRESAR</button>
+  <div *ngIf="error" style="color:red;">{{ error }}</div>
+</form>
     </div>
     <div>
       <p>Ingresa también con:</p>

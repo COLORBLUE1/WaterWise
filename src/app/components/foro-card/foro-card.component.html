@@ -1,7 +1,10 @@
-
 <section>
   <!-- Mostrar todas las cards si NO hay foro seleccionado -->
   <ng-container *ngIf="!foroSeleccionado; else detalleForo">
+    <span class="new" (click)="abrirModalForo()">
+      <img src="icons/NewForo.png" alt="" />
+      <strong> Crear nuevo foro</strong>
+    </span>
     <div
       *ngFor="let foro of foros"
       class="animate__animated animate__fadeInUp"
@@ -10,22 +13,57 @@
     >
       <img src="icons/foloicon.png" alt="" />
       <p>{{ foro.contenido }}</p>
+      <!-- Solo muestra los botones si el foro es del usuario logueado -->
+      <ng-container *ngIf="foro.userId === usuarioLogueado?.userId">
+        <span class="botones">
+      <button (click)="abrirModalEditarForo(foro); $event.stopPropagation()">Editar</button>
+        <button (click)="eliminarForo(foro); $event.stopPropagation()">Eliminar</button>
+        </span>
+      </ng-container>
     </div>
   </ng-container>
 
   <!-- Mostrar solo el foro seleccionado y sus respuestas -->
-  <ng-template #detalleForo >
+  <ng-template #detalleForo>
     <div class="animate__animated animate__zoomIn foroselecionado">
       <img src="icons/foloicon.png" alt="" />
       <p>{{ foroSeleccionado.contenido }}</p>
-    <button (click)="abrirModal()">Responder</button>
-
-      </div> 
-    <app-respuestas [respuestas]="respuestas" *ngIf="foroSeleccionado"></app-respuestas>
+      <button class="boton" (click)="abrirModal()">Responder</button>
+    </div>
+    <app-respuestas
+      [respuestas]="respuestas"
+      *ngIf="foroSeleccionado"
+    ></app-respuestas>
   </ng-template>
-  <app-modal-responder 
-  *ngIf="showModal"
-  (close)="cerrarModal()"
-  (submit)="enviarRespuesta($event)">
-</app-modal-responder>
+
+  <!-- // Modales, crear y responder -->
+
+  <app-modal-responder
+    *ngIf="showModal"
+    (close)="cerrarModal()"
+    (submit)="enviarRespuesta($event)"
+  >
+  </app-modal-responder>
+
+  <app-modal-crear-foro
+    *ngIf="showModalForo"
+    (close)="cerrarModalForo()"
+    (submit)="enviarForo($event)"
+  >
+  </app-modal-crear-foro>
+
+ <app-modal-editar-modal
+  *ngIf="showModalEditarForo"
+  [foro]="foroAEditar"
+  (close)="cerrarModalEditarForo()"
+  (submit)="editarForo($event)">
+</app-modal-editar-modal>
+
+<div *ngIf="showConfirmEliminar" class="modal-backdrop">
+  <div class="modal-content">
+    <p>¿Seguro que quieres eliminar este foro?</p>
+    <button (click)="confirmarEliminar()">Sí</button>
+    <button (click)="showConfirmEliminar = false">No</button>
+  </div>
+</div>
 </section>
