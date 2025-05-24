@@ -135,7 +135,7 @@ app.post('/api/foros/:foroId/respuestas', (req, res) => {
 // Eliminar un foro (solo si el userId coincide)
 app.delete('/api/foros/:foroId', (req, res) => {
   const foroId = req.params.foroId;
-  const { userId } = req.body; // Debes enviar el userId en el body
+  const userId = req.query.userId; // <-- así si lo mandas como query param
 
   // Verifica que el foro sea del usuario
   con.query('SELECT * FROM Foros WHERE foroId = ? AND userId = ?', [foroId, userId], (err, results) => {
@@ -149,6 +149,7 @@ app.delete('/api/foros/:foroId', (req, res) => {
     });
   });
 });
+
 
 // Editar un foro (solo si el userId coincide)
 app.put('/api/foros/:foroId', (req, res) => {

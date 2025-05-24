@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { ModalEliminarComponent } from './modal-eliminar.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('ModalEliminarComponent', () => {
+  let component: ModalEliminarComponent;
+  let fixture: ComponentFixture<ModalEliminarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeComponent]
+      imports: [ModalEliminarComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(ModalEliminarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

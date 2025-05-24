@@ -6,6 +6,7 @@ import { RespuestasComponent } from './respuestas/respuestas.component';
 import { ModalResponderComponent } from './respuestas/modal-responder/modal-responder.component';
 import { ModalCrearForoComponent } from './modal-crear-foro/modal-crear-foro.component';
 import { ModalEditarModalComponent } from "./modal-editar-modal/modal-editar-modal.component";
+import { ModalEliminarComponent } from "./modal-eliminar/modal-eliminar.component";
 
 @Component({
   standalone: true,
@@ -16,7 +17,8 @@ import { ModalEditarModalComponent } from "./modal-editar-modal/modal-editar-mod
     RespuestasComponent,
     ModalResponderComponent,
     ModalCrearForoComponent,
-    ModalEditarModalComponent
+    ModalEditarModalComponent,
+    ModalEliminarComponent
 ],
   templateUrl: './foro-card.component.html',
   styles: `section {

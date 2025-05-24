@@ -26,8 +26,8 @@ export class ForoService {
     return this.http.post('/api/foros', { userId, titulo, contenido });
   }
 
- eliminarForo(foroId: number, userId: number) {
-  return this.http.delete(`/api/foros/${foroId}`, { body: { userId } });
+eliminarForo(foroId: number, userId: number) {
+  return this.http.delete(`/api/foros/${foroId}?userId=${userId}`);
 }
 
   editarForo(

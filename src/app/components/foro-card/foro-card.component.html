@@ -59,11 +59,10 @@
   (submit)="editarForo($event)">
 </app-modal-editar-modal>
 
-<div *ngIf="showConfirmEliminar" class="modal-backdrop">
-  <div class="modal-content">
-    <p>¿Seguro que quieres eliminar este foro?</p>
-    <button (click)="confirmarEliminar()">Sí</button>
-    <button (click)="showConfirmEliminar = false">No</button>
-  </div>
-</div>
+<app-modal-eliminar
+  *ngIf="showConfirmEliminar"
+  [foro]="foroAEliminar"
+  (close)="showConfirmEliminar = false"
+  (confirm)="confirmarEliminar()">
+</app-modal-eliminar>
 </section>
