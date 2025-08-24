@@ -204,8 +204,6 @@ app.get('/api/usuarios', (req, res) => {
 });
 
 
-
-
 // Inicia el servidor
 app.listen(3000, () => {
   console.log('Servidor backend escuchando en http://localhost:3000');
