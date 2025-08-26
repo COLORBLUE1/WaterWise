@@ -36,5 +36,8 @@ import { Component } from '@angular/core';
   `,
 })
 export class NavbarComponent {
-  
+
+  function(){
+    console.log('click');
+  }
 }
